@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Nome Cognome] — Progettista Elettronico</title>
+<title>Mirco Marcazzan — Progettista Elettronico</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -137,14 +138,14 @@
     padding:30px 0;
     border-top:1px solid var(--line);
     display:grid;
-    grid-template-columns:64px 1fr;
+    grid-template-columns:120px 1fr;
     gap:8px 20px;
     align-items:start;
   }
   .project:last-child{border-bottom:1px solid var(--line);}
   .project-thumb{
     grid-row:1 / 4;
-    width:64px; height:64px;
+    width:120px; height:120px;
     border-radius:6px;
     overflow:hidden;
     background:#2B261F;
@@ -193,8 +194,8 @@
   }
 
   @media (max-width:480px){
-    .project{grid-template-columns:48px 1fr; gap:6px 14px;}
-    .project-thumb{width:48px; height:48px;}
+    .project{grid-template-columns:80px 1fr; gap:6px 14px;}
+    .project-thumb{width:80px; height:80px;}
     .project h3{font-size:1.02rem;}
   }
 
@@ -340,64 +341,29 @@
 
     <div class="project">
       <div class="project-thumb">
-        <img src="progetto-alimentatori.jpg" alt="Tool preventivo alimentatori" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img src="P1.png" alt="Tool preventivo alimentatori" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="thumb-placeholder">FOTO</div>
       </div>
       <div class="project-body">
-        <h3 id="p1-title">Tool di preventivo per alimentatori switching</h3>
-        <p id="p1-desc">Raccoglie le specifiche del cliente, suggerisce la topologia più adatta e genera un preventivo basato sul costo dei componenti in distinta base.</p>
+        <h3 id="p1-title">Prototipo di un alimentatore bidirezionale</h3>
+        <p id="p1-desc">Prototipo di un alimentatore bidirezionale.</p>
         <div class="stack">
-          <span class="chip" id="p1-chip1">Topologie switching</span>
-          <span class="chip" id="p1-chip2">Distinta base</span>
-          <span class="chip" id="p1-chip3">Preventivazione</span>
+          <span class="chip" id="p1-chip1">Progettazione</span>
         </div>
       </div>
     </div>
 
     <div class="project">
       <div class="project-thumb">
-        <img src="progetto-autofficina.jpg" alt="Gestionale autofficina" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img src="P2.png" alt="Gestionale autofficina" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="thumb-placeholder">FOTO</div>
       </div>
       <div class="project-body">
-        <h3 id="p2-title">Gestionale per autofficina</h3>
-        <p id="p2-desc">Applicativo web con anagrafica clienti e veicoli, agenda appuntamenti e ricerca diretta nel catalogo filtri MANN-FILTER dalla scheda veicolo.</p>
+        <h3 id="p2-title">Driver per matrice LED con effeto analizzatore di spettro</h3>
+        <p id="p2-desc"></p>
         <div class="stack">
-          <span class="chip" id="p2-chip1">Anagrafica</span>
-          <span class="chip" id="p2-chip2">Agenda</span>
-          <span class="chip" id="p2-chip3">Catalogo filtri</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-thumb">
-        <img src="progetto-cassettiera.jpg" alt="Cassettiera componenti" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="thumb-placeholder">FOTO</div>
-      </div>
-      <div class="project-body">
-        <h3 id="p3-title">Cassettiera componenti intelligente</h3>
-        <p id="p3-desc">Interfaccia desktop collegata a un STM32G4: selezionando un componente si illumina il LED del cassetto corrispondente. Gestisce carico/scarico di magazzino e scarico automatico di una BOM.</p>
-        <div class="stack">
-          <span class="chip">STM32G4</span>
-          <span class="chip">Visual Basic</span>
-          <span class="chip" id="p3-chip3">Gestione magazzino</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="project">
-      <div class="project-thumb">
-        <img src="progetto-meteo.jpg" alt="Schermo meteo Telegram" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="thumb-placeholder">FOTO</div>
-      </div>
-      <div class="project-body">
-        <h3 id="p4-title">Schermo meteo &amp; Telegram</h3>
-        <p id="p4-desc">Display a colori su Arduino UNO R4 WiFi che mostra il meteo in tempo reale e i messaggi ricevuti via Telegram.</p>
-        <div class="stack">
-          <span class="chip">Arduino UNO R4 WiFi</span>
-          <span class="chip" id="p4-chip2">Display a colori</span>
-          <span class="chip">Bot Telegram</span>
+          <span class="chip" id="p2-chip1">DSP</span>
+          <span class="chip" id="p2-chip2">Analog Filter</span>
         </div>
       </div>
     </div>
@@ -409,16 +375,12 @@
   <div class="wrap reveal">
     <h2 id="contatti-title">Contatti</h2>
     <div class="contact-list">
-      <a href="mailto:tuonome@email.com" class="contact-row">
-        <span><span class="k">Email</span><br><span class="v">tuonome@email.com</span></span>
+      <a href="mailto:marcmirco99@gmail.com" class="contact-row">
+        <span><span class="k">Email</span><br><span class="v">marcmirco99@gmail.com</span></span>
         <span class="arrow">→</span>
       </a>
-      <a href="https://www.linkedin.com/in/tuonome" target="_blank" rel="noopener" class="contact-row">
-        <span><span class="k">LinkedIn</span><br><span class="v">linkedin.com/in/tuonome</span></span>
-        <span class="arrow">→</span>
-      </a>
-      <a href="https://github.com/tuonome" target="_blank" rel="noopener" class="contact-row">
-        <span><span class="k">GitHub</span><br><span class="v">github.com/tuonome</span></span>
+      <a href="https://www.linkedin.com/in/mirco-marcazzan-522ab928a" target="_blank" rel="noopener" class="contact-row">
+        <span><span class="k">LinkedIn</span><br><span class="v">linkedin/mirco-marcazzan</span></span>
         <span class="arrow">→</span>
       </a>
     </div>
@@ -429,7 +391,7 @@
 <section id="richiesta" class="tight">
   <div class="wrap reveal">
     <h2 id="richiesta-title">Richiedi informazioni</h2>
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form" action="https://formspree.io/f/meajrvke" method="POST">
       <div class="field">
         <label for="f-nome" id="lbl-nome">Nome</label>
         <input type="text" id="f-nome" name="nome" required>
@@ -448,36 +410,30 @@
   </div>
 </section>
 
-<footer><span id="txt-footer">© 2026 [Nome Cognome] — Progettista elettronico</span></footer>
+<footer><span id="txt-footer">© 2026 Mirco Marcazzan — Progettista elettronico</span></footer>
 
 <script>
   const translations = {
     en: {
-      "txt-eyebrow": "Electronic Designer",
-      "txt-role": "I design switching power supplies with digital control: schematic, PCB and firmware.",
+      "txt-eyebrow": "Electronics Designer",
+      "txt-role": "Electronics designer specialized in switching power supplies.",
       "nav-chisono": "About",
       "nav-progetti": "Projects",
       "nav-contatti": "Contact",
       "txt-scroll": "↓ scroll",
       "chisono-title": "About",
-      "chisono-body": "I'm an electronic designer specialized in <strong style=\"color:var(--ink);\">switching power supplies</strong> and their <strong style=\"color:var(--ink);\">digital control</strong>. I follow the project end to end: from choosing the right topology for the specs, to the schematic and PCB layout of the power stage, through to developing the control firmware on STM32 microcontrollers. I also enjoy pairing hardware design with custom software tools to make everyday technical work more efficient.",
+      "chisono-body": "My name is Mirco Marcazzan, and I am an electronics designer with a master’s degree in electronics from the University of Padua.<br>My areas of expertise are the design of switching power supplies and their digital control. I handle the entire design process: from selecting the topology best suited to the specifications, to the electrical schematic and layout, all the way through to the development of control firmware for microcontrollers. <br>I have expertise in the power supply certification process, including safety (EN 62477), electromagnetic compatibility for the automotive sector (ECE R.10), and environmental testing (vibration and climatic cycles).",
       "progetti-title": "Projects",
-      "p1-title": "Quoting tool for switching power supplies",
-      "p1-desc": "Collects the customer's specifications, suggests the most suitable topology and generates a quote based on component costs from the bill of materials.",
-      "p1-chip1": "Switching topologies",
-      "p1-chip2": "Bill of materials",
-      "p1-chip3": "Quoting",
-      "p2-title": "Management system for an auto repair shop",
-      "p2-desc": "Web app with customer and vehicle records, appointment scheduling, and direct search in the MANN-FILTER catalog from the vehicle's page.",
-      "p2-chip1": "Customer records",
-      "p2-chip2": "Scheduling",
-      "p2-chip3": "Filter catalog",
-      "p3-title": "Smart components drawer cabinet",
-      "p3-desc": "Desktop interface connected to an STM32G4: selecting a component lights up the LED of the drawer that contains it. Manages stock in/out and automatic deduction from a BOM.",
-      "p3-chip3": "Inventory management",
-      "p4-title": "Weather &amp; Telegram display",
-      "p4-desc": "Color display on an Arduino UNO R4 WiFi showing real-time weather and messages received via Telegram.",
-      "p4-chip2": "Color display",
+
+      "p1-title": "Bidirectional power supply",
+      "p1-desc": "Prototype of a 2.5kW, digitally controlled, isolated, bidirectional switching power supply operating at 200 kHz.",
+      "p1-chip1": "Design",
+
+      "p2-title": "Matrix LED driver with spectrum analyzer effect",
+      "p2-desc": "Development of a 48 kHz audio acquisition and signal processing system based on the STM32. The project includes a 9-band digital spectrum analyzer that controls a WS2812B RGB LED matrix.",
+      "p2-chip1": "DSP",
+      "p2-chip2": "Analog Filter",
+
       "contatti-title": "Contact",
       "richiesta-title": "Get in touch",
       "lbl-nome": "Name",
@@ -485,34 +441,28 @@
       "lbl-messaggio": "Message",
       "btn-invia": "Send request",
       "form-note": "I'll get back to you by email as soon as possible.",
-      "txt-footer": "© 2026 [Nome Cognome] — Electronic Designer"
+      "txt-footer": "© 2026 Mirco Marcazzan — Electronic Designer"
     },
     it: {
       "txt-eyebrow": "Progettista Elettronico",
-      "txt-role": "Progetto alimentatori switching a controllo digitale: schema elettrico, PCB e firmware.",
+      "txt-role": "Progettista elettronico specializzato in alimentatori switching.",
       "nav-chisono": "Chi sono",
       "nav-progetti": "Progetti",
       "nav-contatti": "Contatti",
       "txt-scroll": "↓ scorri",
       "chisono-title": "Chi sono",
-      "chisono-body": "Sono un progettista elettronico specializzato in <strong style=\"color:var(--ink);\">alimentatori switching</strong> e nel loro <strong style=\"color:var(--ink);\">controllo digitale</strong>. Seguo il progetto a 360°: dalla scelta della topologia più adatta alle specifiche, allo schema elettrico e al layout PCB del circuito di potenza, fino allo sviluppo del firmware di controllo su microcontrollori STM32. Mi piace affiancare alla progettazione hardware la costruzione di strumenti software su misura per il lavoro tecnico quotidiano.",
+      "chisono-body": "Sono Mirco Marcazzan, progettista elettronico con laurea magistrale in elettronica all'università di Padova.<br>Le mie aree di maggior competenza sono nella progettazione di alimentatori switching e nel loro controllo digitale. Seguo il progetto a 360°: dalla scelta della topologia più adatta alle specifiche, allo schema elettrico e al layout, fino allo sviluppo del firmware di controllo su microcontrollori.<br>Possiedo diverse competenze sul processo certificazione degli alimentatori, dal punto di vista della sicurezza (EN62477), della compatibilità elettromagnetica per ambito automotive (ECE R.10) e sulle prove ambientali (vibrazioni e cicli climatici).",
+      
       "progetti-title": "Progetti",
-      "p1-title": "Tool di preventivo per alimentatori switching",
-      "p1-desc": "Raccoglie le specifiche del cliente, suggerisce la topologia più adatta e genera un preventivo basato sul costo dei componenti in distinta base.",
-      "p1-chip1": "Topologie switching",
-      "p1-chip2": "Distinta base",
-      "p1-chip3": "Preventivazione",
-      "p2-title": "Gestionale per autofficina",
-      "p2-desc": "Applicativo web con anagrafica clienti e veicoli, agenda appuntamenti e ricerca diretta nel catalogo filtri MANN-FILTER dalla scheda veicolo.",
-      "p2-chip1": "Anagrafica",
-      "p2-chip2": "Agenda",
-      "p2-chip3": "Catalogo filtri",
-      "p3-title": "Cassettiera componenti intelligente",
-      "p3-desc": "Interfaccia desktop collegata a un STM32G4: selezionando un componente si illumina il LED del cassetto corrispondente. Gestisce carico/scarico di magazzino e scarico automatico di una BOM.",
-      "p3-chip3": "Gestione magazzino",
-      "p4-title": "Schermo meteo &amp; Telegram",
-      "p4-desc": "Display a colori su Arduino UNO R4 WiFi che mostra il meteo in tempo reale e i messaggi ricevuti via Telegram.",
-      "p4-chip2": "Display a colori",
+      "p1-title": "Prototipo di un alimentatore bidirezionale",
+      "p1-desc": "Prototipo di un alimentatore switching bidirezionale isolato a 200kHz a controllo digitale, da 2.5kW.",
+      "p1-chip1": "Progettazione",
+
+      "p2-title": "Driver per matrice LED con effetto analizzatore di spettro",
+      "p2-desc": "Implementazione di un sistema di acquisizione a 48kHz ed elaborazione di segnale audio basato su STM32. Nel progetto è stato implementato un analizzatore di spettro digitale a 9 bande che controlla una matrice LED RGB WS2812B.",
+      "p2-chip1": "DSP",
+      "p2-chip2": "Analog Filter",
+
       "contatti-title": "Contatti",
       "richiesta-title": "Richiedi informazioni",
       "lbl-nome": "Nome",
@@ -520,7 +470,7 @@
       "lbl-messaggio": "Messaggio",
       "btn-invia": "Invia richiesta",
       "form-note": "Ti risponderò via email il prima possibile.",
-      "txt-footer": "© 2026 [Nome Cognome] — Progettista elettronico"
+      "txt-footer": "© 2026 Mirco Marcazzan — Progettista elettronico"
     }
   };
 
