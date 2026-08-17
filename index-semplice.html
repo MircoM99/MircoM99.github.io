@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Nome Cognome] — Progettista Elettronico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#201D18;
+    --ink:#FAF6EF;
+    --muted:#B8AF9F;
+    --line:#3C362C;
+    --accent:#E68855;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cpath d='M20 0 L20 45 L70 45 L70 110 L160 110' stroke='%23E68855' stroke-width='1' fill='none' opacity='0.10'/%3E%3Cpath d='M0 90 L55 90 L55 25 L120 25 L120 0' stroke='%23E68855' stroke-width='1' fill='none' opacity='0.08'/%3E%3Cpath d='M160 60 L100 60 L100 160' stroke='%23E68855' stroke-width='1' fill='none' opacity='0.07'/%3E%3Ccircle cx='20' cy='45' r='2.5' fill='%23E68855' opacity='0.14'/%3E%3Ccircle cx='70' cy='110' r='2.5' fill='%23E68855' opacity='0.12'/%3E%3Ccircle cx='55' cy='90' r='2.5' fill='%23E68855' opacity='0.1'/%3E%3Ccircle cx='120' cy='25' r='2.5' fill='%23E68855' opacity='0.1'/%3E%3Ccircle cx='100' cy='60' r='2.5' fill='%23E68855' opacity='0.1'/%3E%3C/svg%3E") 0 0/160px 160px,
+      var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- cover ---------- */
+  #cover{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .cover-inner{
+    max-width:760px;
+    margin:0 auto;
+    padding:28px;
+    width:100%;
+  }
+
+  .photo{
+    width:76px; height:76px;
+    border-radius:50%;
+    overflow:hidden;
+    background:#2B261F;
+    position:relative;
+    margin-bottom:28px;
+    border:1px solid var(--line);
+  }
+  .photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .photo-placeholder{
+    display:none;
+    position:absolute; inset:0;
+    align-items:center; justify-content:center;
+    font-size:0.6rem;
+    letter-spacing:0.05em;
+    color:var(--muted);
+    text-align:center;
+  }
+
+  .eyebrow{
+    font-size:0.92rem;
+    color:var(--accent);
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+
+  h1{
+    font-size:clamp(2.2rem, 6vw, 3.4rem);
+    font-weight:600;
+    letter-spacing:-0.02em;
+    margin-top:14px;
+    max-width:14ch;
+  }
+
+  .role{
+    font-size:1.2rem;
+    color:var(--ink);
+    opacity:0.78;
+    margin-top:16px;
+    max-width:42ch;
+  }
+
+  .cover-links{
+    display:flex;
+    gap:22px;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .cover-links a{
+    font-size:0.92rem;
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    transition:color 0.2s, border-color 0.2s;
+  }
+  .cover-links a:hover, .cover-links a:focus-visible{color:var(--accent); border-color:var(--accent);}
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:0.75rem;
+    color:var(--muted);
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:90px 0;}
+  section.tight{padding:70px 0;}
+
+  h2{
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:44px;
+  }
+
+  /* ---------- projects ---------- */
+  .project{
+    padding:30px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:8px 20px;
+    align-items:start;
+  }
+  .project:last-child{border-bottom:1px solid var(--line);}
+  .project-thumb{
+    grid-row:1 / 4;
+    width:64px; height:64px;
+    border-radius:6px;
+    overflow:hidden;
+    background:#2B261F;
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .project-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .project-thumb .thumb-placeholder{
+    display:none;
+    position:absolute; inset:0;
+    align-items:center; justify-content:center;
+    font-size:0.55rem;
+    letter-spacing:0.03em;
+    color:var(--muted);
+    text-align:center;
+  }
+  .project-body{grid-column:2;}
+  .project h3{
+    font-size:1.15rem;
+    font-weight:500;
+  }
+  .project .year{
+    font-size:0.82rem;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .project p{
+    color:var(--muted);
+    font-size:1rem;
+    margin-top:8px;
+    max-width:58ch;
+  }
+  .project .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+  }
+  .chip{
+    font-size:0.78rem;
+    color:var(--ink);
+    opacity:0.72;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:4px 12px;
+  }
+
+  @media (max-width:480px){
+    .project{grid-template-columns:48px 1fr; gap:6px 14px;}
+    .project-thumb{width:48px; height:48px;}
+    .project h3{font-size:1.02rem;}
+  }
+
+  /* ---------- contact ---------- */
+  #contatti{border-top:1px solid var(--line);}
+  .contact-list{display:flex; flex-direction:column; gap:2px;}
+  .contact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    text-decoration:none;
+    color:var(--ink);
+    transition:color 0.2s;
+  }
+  .contact-row:last-child{border-bottom:1px solid var(--line);}
+  .contact-row:hover, .contact-row:focus-visible{color:var(--accent);}
+  .contact-row .k{font-size:0.85rem; color:var(--muted); letter-spacing:0.03em;}
+  .contact-row .v{font-size:1.05rem; font-weight:500;}
+  .contact-row .arrow{color:var(--accent); font-size:1rem;}
+
+  footer{
+    padding:30px 28px;
+    text-align:center;
+    font-size:0.78rem;
+    color:var(--muted);
+  }
+
+  .reveal{opacity:0; transform:translateY(12px); transition:opacity 0.5s ease, transform 0.5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .lang-toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:100;
+    font-family:'Inter', sans-serif;
+    font-size:0.78rem;
+    font-weight:500;
+    letter-spacing:0.03em;
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:7px 16px;
+    cursor:pointer;
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .lang-toggle:hover, .lang-toggle:focus-visible{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- form ---------- */
+  #richiesta{border-top:1px solid var(--line);}
+  form.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    max-width:520px;
+  }
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-bottom:6px;
+    letter-spacing:0.02em;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:12px 14px;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    transition:border-color 0.2s;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+  }
+  .field textarea{resize:vertical; min-height:110px;}
+  .form-submit{
+    align-self:flex-start;
+    margin-top:6px;
+    font-family:'Inter', sans-serif;
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--bg);
+    background:var(--accent);
+    border:none;
+    border-radius:4px;
+    padding:12px 26px;
+    cursor:pointer;
+    transition:opacity 0.2s;
+  }
+  .form-submit:hover, .form-submit:focus-visible{opacity:0.86;}
+  .form-note{font-size:0.8rem; color:var(--muted); margin-top:4px;}
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">EN</button>
+
+<!-- ===== COPERTINA ===== -->
+<section id="cover">
+  <div class="cover-inner reveal">
+    <div class="photo">
+      <img src="foto.jpg" alt="Foto profilo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="photo-placeholder">FOTO</div>
+    </div>
+
+    <span class="eyebrow" id="txt-eyebrow">Progettista Elettronico</span>
+    <h1>[Nome Cognome]</h1>
+    <p class="role" id="txt-role">Progetto alimentatori switching a controllo digitale: schema elettrico, PCB e firmware.</p>
+
+    <div class="cover-links">
+      <a href="#chi-sono" id="nav-chisono">Chi sono</a>
+      <a href="#progetti" id="nav-progetti">Progetti</a>
+      <a href="#contatti" id="nav-contatti">Contatti</a>
+    </div>
+  </div>
+  <div class="scroll-cue" id="txt-scroll">↓ scorri</div>
+</section>
+
+<!-- ===== CHI SONO ===== -->
+<section id="chi-sono" class="tight">
+  <div class="wrap reveal">
+    <h2 id="chisono-title">Chi sono</h2>
+    <p style="color:var(--muted); font-size:1.02rem; max-width:60ch;" id="chisono-body">Sono un progettista elettronico specializzato in <strong style="color:var(--ink);">alimentatori switching</strong> e nel loro <strong style="color:var(--ink);">controllo digitale</strong>. Seguo il progetto a 360°: dalla scelta della topologia più adatta alle specifiche, allo schema elettrico e al layout PCB del circuito di potenza, fino allo sviluppo del firmware di controllo su microcontrollori STM32. Mi piace affiancare alla progettazione hardware la costruzione di strumenti software su misura per il lavoro tecnico quotidiano.</p>
+  </div>
+</section>
+
+<section id="progetti" style="border-top:1px solid var(--line);">
+  <div class="wrap reveal">
+    <h2 id="progetti-title">Progetti</h2>
+
+    <div class="project">
+      <div class="project-thumb">
+        <img src="progetto-alimentatori.jpg" alt="Tool preventivo alimentatori" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="thumb-placeholder">FOTO</div>
+      </div>
+      <div class="project-body">
+        <h3 id="p1-title">Tool di preventivo per alimentatori switching</h3>
+        <p id="p1-desc">Raccoglie le specifiche del cliente, suggerisce la topologia più adatta e genera un preventivo basato sul costo dei componenti in distinta base.</p>
+        <div class="stack">
+          <span class="chip" id="p1-chip1">Topologie switching</span>
+          <span class="chip" id="p1-chip2">Distinta base</span>
+          <span class="chip" id="p1-chip3">Preventivazione</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">
+        <img src="progetto-autofficina.jpg" alt="Gestionale autofficina" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="thumb-placeholder">FOTO</div>
+      </div>
+      <div class="project-body">
+        <h3 id="p2-title">Gestionale per autofficina</h3>
+        <p id="p2-desc">Applicativo web con anagrafica clienti e veicoli, agenda appuntamenti e ricerca diretta nel catalogo filtri MANN-FILTER dalla scheda veicolo.</p>
+        <div class="stack">
+          <span class="chip" id="p2-chip1">Anagrafica</span>
+          <span class="chip" id="p2-chip2">Agenda</span>
+          <span class="chip" id="p2-chip3">Catalogo filtri</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">
+        <img src="progetto-cassettiera.jpg" alt="Cassettiera componenti" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="thumb-placeholder">FOTO</div>
+      </div>
+      <div class="project-body">
+        <h3 id="p3-title">Cassettiera componenti intelligente</h3>
+        <p id="p3-desc">Interfaccia desktop collegata a un STM32G4: selezionando un componente si illumina il LED del cassetto corrispondente. Gestisce carico/scarico di magazzino e scarico automatico di una BOM.</p>
+        <div class="stack">
+          <span class="chip">STM32G4</span>
+          <span class="chip">Visual Basic</span>
+          <span class="chip" id="p3-chip3">Gestione magazzino</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-thumb">
+        <img src="progetto-meteo.jpg" alt="Schermo meteo Telegram" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="thumb-placeholder">FOTO</div>
+      </div>
+      <div class="project-body">
+        <h3 id="p4-title">Schermo meteo &amp; Telegram</h3>
+        <p id="p4-desc">Display a colori su Arduino UNO R4 WiFi che mostra il meteo in tempo reale e i messaggi ricevuti via Telegram.</p>
+        <div class="stack">
+          <span class="chip">Arduino UNO R4 WiFi</span>
+          <span class="chip" id="p4-chip2">Display a colori</span>
+          <span class="chip">Bot Telegram</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATTI ===== -->
+<section id="contatti" class="tight">
+  <div class="wrap reveal">
+    <h2 id="contatti-title">Contatti</h2>
+    <div class="contact-list">
+      <a href="mailto:tuonome@email.com" class="contact-row">
+        <span><span class="k">Email</span><br><span class="v">tuonome@email.com</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/tuonome" target="_blank" rel="noopener" class="contact-row">
+        <span><span class="k">LinkedIn</span><br><span class="v">linkedin.com/in/tuonome</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="https://github.com/tuonome" target="_blank" rel="noopener" class="contact-row">
+        <span><span class="k">GitHub</span><br><span class="v">github.com/tuonome</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RICHIESTA ===== -->
+<section id="richiesta" class="tight">
+  <div class="wrap reveal">
+    <h2 id="richiesta-title">Richiedi informazioni</h2>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="f-nome" id="lbl-nome">Nome</label>
+        <input type="text" id="f-nome" name="nome" required>
+      </div>
+      <div class="field">
+        <label for="f-email" id="lbl-email">Email</label>
+        <input type="email" id="f-email" name="email" required>
+      </div>
+      <div class="field">
+        <label for="f-messaggio" id="lbl-messaggio">Messaggio</label>
+        <textarea id="f-messaggio" name="messaggio" required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="btn-invia">Invia richiesta</button>
+      <p class="form-note" id="form-note">Ti risponderò via email il prima possibile.</p>
+    </form>
+  </div>
+</section>
+
+<footer><span id="txt-footer">© 2026 [Nome Cognome] — Progettista elettronico</span></footer>
+
+<script>
+  const translations = {
+    en: {
+      "txt-eyebrow": "Electronic Designer",
+      "txt-role": "I design switching power supplies with digital control: schematic, PCB and firmware.",
+      "nav-chisono": "About",
+      "nav-progetti": "Projects",
+      "nav-contatti": "Contact",
+      "txt-scroll": "↓ scroll",
+      "chisono-title": "About",
+      "chisono-body": "I'm an electronic designer specialized in <strong style=\"color:var(--ink);\">switching power supplies</strong> and their <strong style=\"color:var(--ink);\">digital control</strong>. I follow the project end to end: from choosing the right topology for the specs, to the schematic and PCB layout of the power stage, through to developing the control firmware on STM32 microcontrollers. I also enjoy pairing hardware design with custom software tools to make everyday technical work more efficient.",
+      "progetti-title": "Projects",
+      "p1-title": "Quoting tool for switching power supplies",
+      "p1-desc": "Collects the customer's specifications, suggests the most suitable topology and generates a quote based on component costs from the bill of materials.",
+      "p1-chip1": "Switching topologies",
+      "p1-chip2": "Bill of materials",
+      "p1-chip3": "Quoting",
+      "p2-title": "Management system for an auto repair shop",
+      "p2-desc": "Web app with customer and vehicle records, appointment scheduling, and direct search in the MANN-FILTER catalog from the vehicle's page.",
+      "p2-chip1": "Customer records",
+      "p2-chip2": "Scheduling",
+      "p2-chip3": "Filter catalog",
+      "p3-title": "Smart components drawer cabinet",
+      "p3-desc": "Desktop interface connected to an STM32G4: selecting a component lights up the LED of the drawer that contains it. Manages stock in/out and automatic deduction from a BOM.",
+      "p3-chip3": "Inventory management",
+      "p4-title": "Weather &amp; Telegram display",
+      "p4-desc": "Color display on an Arduino UNO R4 WiFi showing real-time weather and messages received via Telegram.",
+      "p4-chip2": "Color display",
+      "contatti-title": "Contact",
+      "richiesta-title": "Get in touch",
+      "lbl-nome": "Name",
+      "lbl-email": "Email",
+      "lbl-messaggio": "Message",
+      "btn-invia": "Send request",
+      "form-note": "I'll get back to you by email as soon as possible.",
+      "txt-footer": "© 2026 [Nome Cognome] — Electronic Designer"
+    },
+    it: {
+      "txt-eyebrow": "Progettista Elettronico",
+      "txt-role": "Progetto alimentatori switching a controllo digitale: schema elettrico, PCB e firmware.",
+      "nav-chisono": "Chi sono",
+      "nav-progetti": "Progetti",
+      "nav-contatti": "Contatti",
+      "txt-scroll": "↓ scorri",
+      "chisono-title": "Chi sono",
+      "chisono-body": "Sono un progettista elettronico specializzato in <strong style=\"color:var(--ink);\">alimentatori switching</strong> e nel loro <strong style=\"color:var(--ink);\">controllo digitale</strong>. Seguo il progetto a 360°: dalla scelta della topologia più adatta alle specifiche, allo schema elettrico e al layout PCB del circuito di potenza, fino allo sviluppo del firmware di controllo su microcontrollori STM32. Mi piace affiancare alla progettazione hardware la costruzione di strumenti software su misura per il lavoro tecnico quotidiano.",
+      "progetti-title": "Progetti",
+      "p1-title": "Tool di preventivo per alimentatori switching",
+      "p1-desc": "Raccoglie le specifiche del cliente, suggerisce la topologia più adatta e genera un preventivo basato sul costo dei componenti in distinta base.",
+      "p1-chip1": "Topologie switching",
+      "p1-chip2": "Distinta base",
+      "p1-chip3": "Preventivazione",
+      "p2-title": "Gestionale per autofficina",
+      "p2-desc": "Applicativo web con anagrafica clienti e veicoli, agenda appuntamenti e ricerca diretta nel catalogo filtri MANN-FILTER dalla scheda veicolo.",
+      "p2-chip1": "Anagrafica",
+      "p2-chip2": "Agenda",
+      "p2-chip3": "Catalogo filtri",
+      "p3-title": "Cassettiera componenti intelligente",
+      "p3-desc": "Interfaccia desktop collegata a un STM32G4: selezionando un componente si illumina il LED del cassetto corrispondente. Gestisce carico/scarico di magazzino e scarico automatico di una BOM.",
+      "p3-chip3": "Gestione magazzino",
+      "p4-title": "Schermo meteo &amp; Telegram",
+      "p4-desc": "Display a colori su Arduino UNO R4 WiFi che mostra il meteo in tempo reale e i messaggi ricevuti via Telegram.",
+      "p4-chip2": "Display a colori",
+      "contatti-title": "Contatti",
+      "richiesta-title": "Richiedi informazioni",
+      "lbl-nome": "Nome",
+      "lbl-email": "Email",
+      "lbl-messaggio": "Messaggio",
+      "btn-invia": "Invia richiesta",
+      "form-note": "Ti risponderò via email il prima possibile.",
+      "txt-footer": "© 2026 [Nome Cognome] — Progettista elettronico"
+    }
+  };
+
+  let currentLang = localStorage.getItem('siteLang') || (navigator.language.toLowerCase().startsWith('it') ? 'it' : 'en');
+
+  function applyLang(lang){
+    const dict = translations[lang];
+    Object.keys(dict).forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.innerHTML = dict[id];
+    });
+    document.documentElement.lang = lang;
+    document.getElementById('lang-toggle').textContent = lang === 'it' ? 'EN' : 'IT';
+    currentLang = lang;
+    localStorage.setItem('siteLang', lang);
+  }
+
+  function toggleLang(){
+    applyLang(currentLang === 'it' ? 'en' : 'it');
+  }
+
+  applyLang(currentLang);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
